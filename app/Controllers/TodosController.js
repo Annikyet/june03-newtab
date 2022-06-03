@@ -1,4 +1,5 @@
 import { ProxyState } from "../AppState.js"
+import { todosService } from "../Services/TodosService.js"
 
 
 
@@ -15,5 +16,14 @@ export class TodosController {
   constructor() {
     _draw()
     ProxyState.on('todos', _draw)
+    todosService.meow()
+  }
+
+  purr() {
+    todosService.purr()
+  }
+
+  remove() {
+    todosService.remove()
   }
 }
