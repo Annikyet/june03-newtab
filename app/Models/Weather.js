@@ -1,9 +1,8 @@
 export class Weather {
-  constructor(data) {
-    this.temperature // Degrees Kelvin
-    this.city
-    this.state  // State abbreviation
-    this.unit // Temperature Units
+  constructor() {
+    this.temperature = 0
+    this.city = 'The Void'
+    this.unit = 'f'
   }
 
   get Celsius() {
@@ -14,18 +13,22 @@ export class Weather {
     return (9 * this.Celsius / 5) + 32
   }
 
-  get Template() {
-    let degrees = this.temperature
-    let unit = 'K'
+  get WeatherString() {
+    let degrees = ''
+    let unit = ''
     switch(this.unit) {
       case 'c':
-        degrees = this.Celsius
-        unit = 'C'
+        degrees = Math.round(this.Celsius)
+        unit = '°C'
         break
       case 'f':
-        degrees = this.Fahrenheit
-        unit = 'F'
+        degrees = Math.round(this.Fahrenheit)
+        unit = '°F'
+        break
+      default:
+        degrees = Math.round(this.temperature)
+        unit = '°K'
     }
-    return `${degrees}°${unit} in ${this.city}, ${this.state}`
+    return `${degrees}${unit}`
   }
 }
