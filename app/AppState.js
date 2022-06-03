@@ -1,12 +1,14 @@
 import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 import { Weather } from "./Models/Weather.js"
+import { Clock } from "./Models/Clock.js"
 
 class AppState extends EventEmitter {
   /** @type {import('./Models/Value').Value[]} */
   // values = []
 
   weather = new Weather()
+  clock = new Clock()
 }
 
 export const ProxyState = new Proxy(new AppState(), {

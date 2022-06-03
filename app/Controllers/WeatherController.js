@@ -17,5 +17,17 @@ export class WeatherController {
 
   }
 
-
+  changeUnit() {
+    switch(ProxyState.weather.unit) {
+      case 'f':
+        ProxyState.weather.unit = 'c'
+        break
+      case 'c':
+        ProxyState.weather.unit = 'k'
+        break
+      default:
+        ProxyState.weather.unit = 'f'
+    }
+    ProxyState.weather = ProxyState.weather
+  }
 }

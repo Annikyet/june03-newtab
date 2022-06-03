@@ -20,13 +20,9 @@
     <div class="row">
       <div class="offset-10 col-2">
         <div class="card">
-          <div class="card-body">
-            <h4 class="card-title" id="weather">
-              temperature
-            </h4>
-            <h5 class="card-subtitle" id="city">
-              nowhere
-            </h5>
+          <div class="card-body" onclick="app.weatherController.changeUnit()">
+            <h4 class="card-title" id="weather"></h4>
+            <h5 class="card-subtitle" id="city"></h5>
           </div>
         </div>
       </div>
@@ -34,10 +30,8 @@
     <div class="row mt-5 pt-5">
       <div class="offset-4 col-4 mt-5 pt-5">
         <div class="card">
-          <div class="card-body">
-            <h1 class="card-title">
-              The Time
-            </h1>
+          <div class="card-body" onclick="app.clockController.changeUnit()">
+            <h1 class="card-title" id="clock"></h1>
           </div>
         </div>
       </div>
