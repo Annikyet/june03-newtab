@@ -26,4 +26,12 @@ export class TodosController {
   remove() {
     todosService.remove()
   }
+
+  complete(id) {
+    console.log('completed: ' + id)
+  }
+
+  uncomplete(id) {
+    console.log('uncomplete: ' + id)
+  }
 }
