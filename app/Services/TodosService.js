@@ -14,14 +14,14 @@ class TodosService {
 
   async remove() {
     console.log('removing todo')
-    const res = await todosApi.delete('629a8e345be986001628b477')
+    const res = await todosApi.delete(id)
     console.log(res.data)
   }
 
   async purr() {
     console.log('marking completed')
     const res = await todosApi.put(
-      '629a8e345be986001628b477',
+      id,
       {completed: true}
     )
     console.log(res.data)
