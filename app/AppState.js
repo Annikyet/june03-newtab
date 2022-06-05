@@ -13,6 +13,7 @@ class AppState extends EventEmitter {
   todos = []
   image
   quote
+  objective = ''
 }
 
 export const ProxyState = new Proxy(new AppState(), {
