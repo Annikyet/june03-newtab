@@ -14,10 +14,11 @@ class TodosService {
 
   }
 
-  async remove() {
+  async remove(id) {
     console.log('removing todo')
     const res = await todosApi.delete(id)
     console.log(res.data)
+    this.fetch()
   }
 
   async update(id, completed) {
@@ -43,7 +44,7 @@ class TodosService {
       description: description
     })
     console.log(res.data)
-    ProxyState.todos = res.data.map(t =>  new Todo(t))
+    this.fetch()
   }
 }
 

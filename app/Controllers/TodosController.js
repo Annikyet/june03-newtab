@@ -19,12 +19,18 @@ export class TodosController {
     ProxyState.on('todos', _draw)
   }
 
-  remove() {
-    todosService.remove()
+  remove(id) {
+    todosService.remove(id)
   }
 
   update(id, completion) {
     console.log('update' + id + completion)
     todosService.update(id, completion)
+  }
+
+  create() {
+    window.event.preventDefault()
+    let description = window.event.target.newtodo.value
+    todosService.create(description)
   }
 }
