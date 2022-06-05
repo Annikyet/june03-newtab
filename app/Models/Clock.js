@@ -30,6 +30,7 @@ export class Clock {
       default:
         return `time is an illusion`
     }
+    // need to handle minutes that start with '0'
     dateString += this.time.getMinutes()
     dateString += suffix
     return dateString

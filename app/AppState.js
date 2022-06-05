@@ -11,6 +11,7 @@ class AppState extends EventEmitter {
   weather = new Weather()
   clock = new Clock()
   todos = []
+  image
 }
 
 export const ProxyState = new Proxy(new AppState(), {
