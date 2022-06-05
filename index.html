@@ -15,6 +15,7 @@
 </head>
 
 <!-- Seriously, this CSS is atrocious and needs a refactor, but I don't have time -->
+
 <body>
   <main class="container-fluid">
     <div class="row">
@@ -63,7 +64,7 @@
             <div class="card">
               <div class="card-body">
                 <h3 class="card-title">
-                  This be a quote
+                  "You can quote me on that!"
                 </h3>
                 <h4 class="card-subtitle">
                   Quotey McQuoteFace
@@ -76,17 +77,14 @@
       <div class="offset-1 col-2 d-flex flex-column justify-content-end">
         <div class="card">
           <div class="card-body">
-            <h3 class="card-title">
-              Todo List
-            </h3>
-            <ul class="list-group list-group-flush" id="todos">
-              <li class="list-group-item">Do this thing</li>
-              <li class="list-group-item">Do this thing</li>
-              <li class="list-group-item">Do this thing</li>
-              <li class="list-group-item">Do this thing</li>
-              <li class="list-group-item">Do this thing</li>
-              <li class="list-group-item">Do this thing</li>
-            </ul>
+            <h3 class="card-title">Todo List</h3>
+            <ul class="list-group list-group-flush" id="todos"></ul>
+            <form onsubmit="app.todosController.create()">
+              <input type="text" name="new-todo" id="new-todo" placeholder="New Todo">
+              <!-- <button class="btn">
+                <i class="mdi mdi-plus"></i>
+              </button> -->
+            </form>
           </div>
         </div>
       </div>

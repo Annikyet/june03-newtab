@@ -6,13 +6,25 @@ export class Todo {
   }
 
   get Template() {
-    return `
-    <li class="list-group-item">
-      <div>
-        <input type="checkbox" ${this.completed ? "checked" : ""} onclick="app.todosController.${this.completed ? "un" : ""}complete('${this.id}')">
-        ${this.name}
-        <i class="mdi mdi-delete" onclick="app.todosController.remove('${this.id}')></i>
-      </div>
-    </li>`
+    if (this.completed) {
+      return `
+      <li class="list-group-item">
+        <div>
+          <input type="checkbox" checked onclick="app.todosController.uncomplete('${this.id}')">
+          ${this.name}
+          <i class="mdi mdi-delete" onclick="app.todosController.remove('${this.id}')"></i>
+        </div>
+      </li>`
+    }
+    else {
+      return `
+      <li class="list-group-item">
+        <div>
+          <input type="checkbox" onclick="app.todosController.complete('${this.id}')">
+          ${this.name}
+          <i class="mdi mdi-delete" onclick="app.todosController.remove('${this.id}')"></i>
+        </div>
+      </li>`
+    }
   }
 }
