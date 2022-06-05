@@ -5,8 +5,8 @@ import { todosService } from "../Services/TodosService.js"
 
 function _draw() {
   let html = ''
-  for (let t = 0; t < 6; t++) {
-    html += ProxyState.todos[0].Template
+  for (let t = 0; t < ProxyState.todos.length; t++) {
+    html += ProxyState.todos[t].Template
   }
   document.getElementById('todos').innerHTML = html
 }
@@ -14,24 +14,17 @@ function _draw() {
 
 export class TodosController {
   constructor() {
+    todosService.fetch()
     _draw()
     ProxyState.on('todos', _draw)
-    todosService.meow()
-  }
-
-  purr() {
-    todosService.purr()
   }
 
   remove() {
     todosService.remove()
   }
 
-  complete(id) {
-    console.log('completed: ' + id)
-  }
-
-  uncomplete(id) {
-    console.log('uncomplete: ' + id)
+  update(id, completion) {
+    console.log('update' + id + completion)
+    todosService.update(id, completion)
   }
 }

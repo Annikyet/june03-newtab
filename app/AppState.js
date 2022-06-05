@@ -10,7 +10,7 @@ class AppState extends EventEmitter {
 
   weather = new Weather()
   clock = new Clock()
-  todos = [new Todo()]
+  todos = []
 }
 
 export const ProxyState = new Proxy(new AppState(), {

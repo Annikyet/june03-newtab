@@ -1,8 +1,10 @@
+import { generateId } from "../Utils/generateId.js"
+
 export class Todo {
-  constructor() {
-    this.name = 'Do this thing'
-    this.id = 0
-    this.completed = true
+  constructor(data) {
+    this.description = data.description
+    this.id = data.id || generateId()
+    this.completed = data.completed
   }
 
   get Template() {
@@ -10,8 +12,8 @@ export class Todo {
       return `
       <li class="list-group-item">
         <div>
-          <input type="checkbox" checked onclick="app.todosController.uncomplete('${this.id}')">
-          ${this.name}
+          <input type="checkbox" checked onclick="app.todosController.update('${this.id}', ${!this.completed})">
+          ${this.description}
           <i class="mdi mdi-delete" onclick="app.todosController.remove('${this.id}')"></i>
         </div>
       </li>`
@@ -20,8 +22,8 @@ export class Todo {
       return `
       <li class="list-group-item">
         <div>
-          <input type="checkbox" onclick="app.todosController.complete('${this.id}')">
-          ${this.name}
+          <input type="checkbox" onclick="app.todosController.update('${this.id}', ${!this.completed})">
+          ${this.description}
           <i class="mdi mdi-delete" onclick="app.todosController.remove('${this.id}')"></i>
         </div>
       </li>`

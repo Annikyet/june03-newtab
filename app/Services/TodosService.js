@@ -1,3 +1,5 @@
+import { ProxyState } from "../AppState.js"
+import { Todo } from "../Models/Todo.js"
 
 
 
@@ -18,28 +20,30 @@ class TodosService {
     console.log(res.data)
   }
 
-  async purr() {
+  async update(id, completed) {
     console.log('marking completed')
     const res = await todosApi.put(
       id,
-      {completed: true}
+      {completed: completed}
     )
     console.log(res.data)
+    this.fetch()
   }
 
-  async mrow() {
+  async fetch() {
     console.log('fetching todos')
     const res = await todosApi.get()
     console.log(res.data)
+    ProxyState.todos = res.data.map(t => new Todo(t))
   }
 
-  async meow() {
+  async create(description) {
     console.log('creating todo')
     const res = await todosApi.post('', {
-      description: 'meowl at the moon'
+      description: description
     })
     console.log(res.data)
-    this.mrow()
+    ProxyState.todos = res.data.map(t =>  new Todo(t))
   }
 }
 
