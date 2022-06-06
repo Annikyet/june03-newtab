@@ -29,6 +29,6 @@ export class Weather {
         degrees = Math.round(this.temperature)
         unit = '°K'
     }
-    return `${degrees}${unit}`
+    return '<i class="mdi mdi-weather-lightning-rainy"></i>' + `${degrees}${unit}`
   }
 }

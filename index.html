@@ -19,7 +19,8 @@
 <body>
   <main class="container-fluid">
     <div class="row">
-      <div class="offset-10 col-2">
+      <!-- <div class="offset-10 col-2"> -->
+      <div class="d-flex justify-content-end">
         <div class="card">
           <div class="card-body" onclick="app.weatherController.changeUnit()">
             <h4 class="card-title" id="weather"></h4>
@@ -31,7 +32,7 @@
     <div class="row mt-5 pt-5">
       <div class="offset-4 col-4 mt-5 pt-5">
         <div class="card">
-          <div class="card-body" onclick="app.clockController.changeUnit()">
+          <div class="card-body clock" onclick="app.clockController.changeUnit()">
             <h1 class="card-title" id="clock"></h1>
           </div>
         </div>
@@ -49,10 +50,10 @@
         <div class="row">
           <div class="col-12">
             <div class="card">
-              <div class="card-body">
+              <div class="card-body objective">
                 <h2 class="card-title">
                   <form onsubmit="app.objectiveController.update()">
-                    <input type="text" name="newobjective" id="newobjective" placeholder="What is your purpose?" value="meow">
+                    <input type="text" name="newobjective" id="newobjective" placeholder="What is your purpose?">
                   </form>
                 </h2>
               </div>
@@ -72,7 +73,7 @@
       </div>
       <div class="offset-1 col-2 d-flex flex-column justify-content-end">
         <div class="card">
-          <div class="card-body">
+          <div class="card-body todo">
             <h3 class="card-title">Todo List</h3>
             <ul class="list-group list-group-flush" id="todos"></ul>
             <form onsubmit="app.todosController.create()">

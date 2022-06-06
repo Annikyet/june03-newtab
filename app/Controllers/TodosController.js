@@ -20,7 +20,9 @@ export class TodosController {
   }
 
   remove(id) {
-    todosService.remove(id)
+    if (window.confirm("Do you want to remove this task?")){
+      todosService.remove(id)
+    }
   }
 
   update(id, completion) {
